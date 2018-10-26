@@ -1,0 +1,37 @@
+<!doctype <!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>GETLocalização</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="main.js"></script>
+</head>
+<body>
+    <style>
+        font-family: Arial, Helvetica, sans-serif;
+    </style>
+    <p id="demo">Clique no botão para receber sua localização em Latitude e Longitude:</p>
+    <button onclick="getLocation()">Clique Aqui</button>
+    <script>
+        var x=document.getElementById("demo");
+        function getLocation()
+        {
+            if (navigator.geolocation)
+            {
+                navigator.geolocation.getCurrentPosition(showPosition);
+            }
+            else
+            {
+                x.innerHTML="O seu navegador não suporta Geolocalização.";
+            }
+        }
+        function showPosition(position)
+        {
+            x.innerHTML="Latitude: " + position.coords.latitude +
+            "<br>Longitude: " + position.coords.longitude; 
+        }
+    </script>
+</body>
+</html>
